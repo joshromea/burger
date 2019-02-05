@@ -30,7 +30,7 @@ const orm = {
         console.log(queryString);
         conn.query(queryString, (err, res) => {
             if (err) throw err;
-            cb(result);
+            cb(res);
         })
     },
     insertOne: (table, cols, vals, cb) => {
@@ -39,7 +39,7 @@ const orm = {
         console.log(queryString);
         conn.query(queryString, (err, res) => {
             if (err) throw err;
-            cb(result);
+            cb(res);
         })
     },
     updateOne: (table, objColVals, condition, cb) => {
@@ -48,7 +48,7 @@ const orm = {
         console.log(queryString);
         conn.query(queryString, (err, res) => {
             if (err) throw err;
-            cb(result);
+            cb(res);
         })
     }
 }
