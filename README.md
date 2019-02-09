@@ -7,7 +7,9 @@ This app utilizes MySQL, Node, Express and Handlebars. 3 sections show the diffe
 ![Screenshot of app](https://i.imgur.com/j5xL0aD.jpg)
 
 # Technologies used
-Node
-Express
-Express-Handlebars
-MySQL
+1. Node
+2. Express
+3. Express-Handlebars
+4. MySQL
+5. Bootstrap
+6. JQuery
