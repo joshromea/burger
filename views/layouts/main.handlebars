@@ -5,24 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/assets/css/burger_style.css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-    <script src='/burger/public/assets/js/burgers.js'></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Delicious Delicious Burgers!</title>
 </head>
 
 <body>
-    <div class='container'>
 
-        <header>
-            <img class='mx-auto' src='../public/assets/img/burger.jpg'>
-            <h1 class='text-center'>BURGER TIME!!</h1>
-            <h5 class='text-center'>No Pickles Allowed!!</h5>
-        </header>
+    <header>
+        <img class='rounded mx-auto d-block' src='/assets/img/burger.gif'>
+        <h1 class='text-center'>BURGER TIME!!</h1>
+        <h5 class='text-center'>No Pickles Allowed!!</h5>
+    </header>
 
-        {{{ body }}}
+    {{{ body }}}
 
-    </div>
+
+    <script src='/assets/js/burger.js'></script>
 </body>
 
 </html>

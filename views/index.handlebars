@@ -1,44 +1,60 @@
-<div class='jumbotron'>
-    <div class='row'>
-        <div class='col-md-6'>
-            {{#each burgers}}
-            {{#unless this.devoured}}
-            <div>
-                <form action='/burgers/{{this.id}}?_method=PUT' method='POST'>
-                    <button type='submit' class='notEaten'> {{ this.burger_name }}</button>
-                </form>
-            </div>
-            {{/unless}}
-            {{/each}}
+<div class='row'>
+    <div class='container' id='main-content'>
+        <div class='jumbotron bg-warning col-md-8'>
+            <h2 class="text-body">These delicious burgers are available!</h2>
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-block devoured=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class='jumbotron bg-warning col-md-4 '>
+            <h2 class="text-body">JUST SOLD OUT 😢</h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li>
+                    <h5 class="text-body">{{this.burger_name}}</h5>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
         </div>
     </div>
 </div>
 
-<div class='jumbotron'>
-    <div class='row'>
-        <div class='col-md-6'>
-            {{#each burgers}}
-            {{#if this.devoured}}
-            <div class='AteBurgers'>
-                <div>
-                    {{this.burger_name}}
+<div class='row'>
+    <div class='container' id='addburg'>
+        <div class='jumbotron bg-warning col-md text-center'>
+            <h2 class="text-body">ADD YOUR OWN DELICIOUSNESS!</h2>
+            <form class='create-burger'>
+
+                <div class='form-group'>
+                    <label for='burg'>
+                        <h5 class="text-body">Your Burger Name</h5>
+                    </label>
+                    <input type='text' id='burg' name='burgname'>
                 </div>
-            </div>
-            {{/if}}
-            {{/each}}
-        </div>
-    </div>
-</div>
 
-<h1>Add your own Burger!</h1>
-
-<div class='jumbotron'>
-    <div class='row'>
-        <div class='col-md-12'>
-            <form action='/burgers' method="POST">
-                <input type='text' id='name' name='burger_name' placeholder="NAME YOUR DELICIOUSNESS">
-                <button type="submit" class='addBurgerBtn'>ADD YOUR DELICIOUSNESS</button>
+                <button type='submit'>ADD YOUR DELICIOUSNESS</button>
             </form>
         </div>
     </div>
 </div>
+
+{{!-- <div class='jumbotron eaten'>
+    <div class='row'>
+        <div class='col-md-6'>
+            <h2>JUST SOLD OUT 😢</h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li>{{this.burger_name}}</li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div> --}}

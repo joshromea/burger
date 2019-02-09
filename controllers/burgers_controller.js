@@ -13,15 +13,19 @@ router.get('/', (req, res) => {
 });
 
 router.post('/api/burgers', (req, res) => {
-    burger.insertOne(['burger_name'], [req.body.burger_name], (result) => {
-        res.redirect('/');
+    burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], (data) => {
+        res.json({ id: data.insertID })
     });
 });
 
 router.put('/api/burgers/:id', (req, res) => {
-    const condition = `id = ${req.params.id}`;
+    let condition = `id = ${req.params.id}`;
     burger.updateOne({ devoured: true }, condition, (data) => {
-        res.redirect('/');
+        if (data.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end()
+        }
     });
 });
 

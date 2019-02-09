@@ -34,10 +34,10 @@ const orm = {
         })
     },
     insertOne: (table, cols, vals, cb) => {
-        let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${questionMarkPrinter(vals.length)}) `;
+        let queryString = `INSERT INTO ${table} (${cols.toString()} ) VALUES (${questionMarkPrinter(vals.length)}) `;
 
         console.log(queryString);
-        conn.query(queryString, (err, res) => {
+        conn.query(queryString, vals, (err, res) => {
             if (err) throw err;
             cb(res);
         })
