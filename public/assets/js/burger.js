@@ -40,7 +40,7 @@ $(function () {
             data: newBurger
         }).then(() => {
             console.log(`New Burger Created`)
-            // location.reload();
+            location.reload();
         })
     })
 })
